@@ -13,7 +13,7 @@ public class Main {
     public static void main(String[] args) {
         ProductoServicios productos = new ProductoServicios();
 
-        String menu = "Jaguar Coffee \n1. Agregar \n2. Ver\n3. Salir\nOpcion: ";
+        String menu = "Jaguar Coffee \n1. Agregar \n2. Ver\n3. Buscar producto \n4. Buscar por nombre \n5. Elimar Producto \n6. Editar Producto \n7. Salir\nOpcion: ";
         String nombre, precio, cantidad, opcion = "0";
 
         do {
@@ -36,7 +36,22 @@ public class Main {
                     cantidad = JOptionPane.showInputDialog(null, "Cantidad del Producto");
                     JOptionPane.showMessageDialog(null, productos.buscarProducto(nombre, Integer.parseInt(cantidad), Double.parseDouble(precio)));
                 }
-                case "4" -> JOptionPane.showMessageDialog(null, "no oy a poner eso");
+                case "4"->
+                {
+                    nombre = JOptionPane.showInputDialog(null, "Nombre del Producto");
+                    JOptionPane.showMessageDialog(null, productos.buscarProducto(nombre));
+                }
+                case "5" ->{
+                    nombre = JOptionPane.showInputDialog(null, "Nombre del Producto");
+                    JOptionPane.showMessageDialog(null, productos.eliminarProducto(nombre));
+                }
+                case "6"->{
+                    nombre = JOptionPane.showInputDialog(null, "Nombre del Producto");
+                    precio = JOptionPane.showInputDialog(null, "Precio del Prodcuto");
+                    cantidad = JOptionPane.showInputDialog(null, "Cantidad del Producto");
+                    JOptionPane.showMessageDialog(null, productos.editarProducto(nombre, Double.parseDouble(precio), Integer.parseInt(cantidad)));
+                }
+                case "7" -> JOptionPane.showMessageDialog(null, "no oy a poner eso");
                 default ->
                 {
                     JOptionPane.showMessageDialog(null, "Opcion invalida");
