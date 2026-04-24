@@ -58,7 +58,7 @@ public class Main {
                 }
 
             }
-        }while(!opcion.equals("3"));
+        }while(!opcion.equals("7"));
 
         productos.agregarProducto("Cafe", 40, 3);
         productos.agregarProducto("Tajadas con queso", 60, 3);

@@ -36,17 +36,21 @@ public class ProductoServicios implements ProductoInterfaz {
     @Override
     public boolean editarProducto(String nombre, double precio, int cantidad) {
         Producto miProducto = new Producto(nombre, cantidad, precio);
-        if (productos.contains(miProducto)){
-            JOptionPane.showMessageDialog(null, "Producto encontrado");
-            String new_nombre = JOptionPane.showInputDialog(null, "Nombre del Producto");
-            String new_precio = JOptionPane.showInputDialog(null, "Precio del Prodcuto");
-            String new_cantidad = JOptionPane.showInputDialog(null, "Cantidad del Producto");
 
-            miProducto.setNombre(new_nombre);
-            miProducto.setPrecio(Double.parseDouble(new_precio));
-            miProducto.setCantidad(Integer.parseInt(new_cantidad));
+        for (Producto producto : productos) {
+            if (producto.equals(miProducto)) {
+                JOptionPane.showMessageDialog(null, "Producto encontrado");
 
-            return true;
+                String new_nombre = JOptionPane.showInputDialog(null, "Nombre del Producto");
+                String new_precio = JOptionPane.showInputDialog(null, "Precio del Producto");
+                String new_cantidad = JOptionPane.showInputDialog(null, "Cantidad del Producto");
+
+                producto.setNombre(new_nombre);
+                producto.setPrecio(Double.parseDouble(new_precio));
+                producto.setCantidad(Integer.parseInt(new_cantidad));
+
+                return true;
+            }
         }
         return false;
     }
