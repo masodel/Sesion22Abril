@@ -1,5 +1,7 @@
 package ni.uam.edu.modelos;
 
+import java.util.Objects;
+
 public class Producto {
     private String nombre;
     private int cantidad;
@@ -46,5 +48,17 @@ public class Producto {
         sb.append(", precio=").append(precio);
         sb.append('}');
         return sb.toString();
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null || getClass() != o.getClass()) return false;
+        Producto producto = (Producto) o;
+        return cantidad == producto.cantidad && Double.compare(precio, producto.precio) == 0 && Objects.equals(nombre, producto.nombre);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(nombre, cantidad, precio);
     }
 }

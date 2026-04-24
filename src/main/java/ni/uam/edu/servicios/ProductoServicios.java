@@ -24,6 +24,24 @@ public class ProductoServicios implements ProductoInterfaz {
         return productos;
     }
 
+    @Override
+    public boolean eliminarProducto(String nombre) {
+        return false;
+    }
+
+    @Override
+    public boolean editarProducto(String nombre, double precio, int cantidad) {
+        return false;
+    }
+
+    @Override
+    public boolean buscarProducto(String nombre, int cantidad, double precio) {
+        for (Producto producto : productos){
+
+        }
+        return false;
+    }
+
     public double getMonto() {
         double monto = 0, total = 0;
         for (Producto producto : productos) {
