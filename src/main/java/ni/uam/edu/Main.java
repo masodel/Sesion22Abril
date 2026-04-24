@@ -30,7 +30,13 @@ public class Main {
                 {
                     JOptionPane.showMessageDialog(null, productos.getFactura());
                 }
-                case "3" -> JOptionPane.showMessageDialog(null, "no oy a poner eso");
+                case "3" -> {
+                    nombre = JOptionPane.showInputDialog(null, "Nombre del Producto");
+                    precio = JOptionPane.showInputDialog(null, "Precio del Prodcuto");
+                    cantidad = JOptionPane.showInputDialog(null, "Cantidad del Producto");
+                    JOptionPane.showMessageDialog(null, productos.buscarProducto(nombre, Integer.parseInt(cantidad), Double.parseDouble(precio)));
+                }
+                case "4" -> JOptionPane.showMessageDialog(null, "no oy a poner eso");
                 default ->
                 {
                     JOptionPane.showMessageDialog(null, "Opcion invalida");

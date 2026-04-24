@@ -36,8 +36,9 @@ public class ProductoServicios implements ProductoInterfaz {
 
     @Override
     public boolean buscarProducto(String nombre, int cantidad, double precio) {
+        Producto miProducto = new Producto(nombre, cantidad, precio);
         for (Producto producto : productos){
-
+            if (producto.equals(miProducto)) {return true;}
         }
         return false;
     }
